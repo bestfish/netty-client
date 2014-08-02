@@ -31,11 +31,10 @@
 			<artifactId>xmemcached</artifactId>
 			<version>1.4.3</version>
 		</dependency>
-
 		<dependency>
-			<groupId>com.jd</groupId>
-			<artifactId>saf</artifactId>
-			<version>1.0.7-SNAPSHOT</version>
-		</dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+        </dependency>
 	</dependencies>
 </project>
