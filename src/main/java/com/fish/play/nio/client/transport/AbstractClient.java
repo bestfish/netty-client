@@ -33,7 +33,7 @@ public abstract class AbstractClient {
 			connect();
 		} catch (Throwable e) {
 			close();
-			log.error("connect to server " + host + ":" + port + " error.", e);
+			log.error("initially connect to server " + host + ":" + port + " failed, please check whether the server is startup.", e);
 		}
 	}
 
@@ -71,13 +71,13 @@ public abstract class AbstractClient {
 							times = reconnect_count.incrementAndGet();
 							connect();
 						} catch (Throwable t) {
-							log.error("client reconnect to server " + host + ":" + port + " error for " + times
+							log.error("client reconnect to server " + host + ":" + port + " failed for " + times
 									+ " times", t);
 						}
 					}
 				}
 			};
-			reconnectExecutorService.scheduleWithFixedDelay(reconnectTask, reconnect, reconnect, TimeUnit.MILLISECONDS);
+			reconnectExecutorFuture = reconnectExecutorService.scheduleWithFixedDelay(reconnectTask, reconnect, reconnect, TimeUnit.MILLISECONDS);
 
 		}
 

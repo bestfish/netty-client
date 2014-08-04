@@ -87,5 +87,9 @@ public class NettyClient extends AbstractClient {
 			return null;
 		return NettyChannel.getOrAddChannel(ch);
 	}
+	
+	public static void main(String[] args) {
+		new NettyClient("127.0.0.1", 8080);
+	}
 
 }
