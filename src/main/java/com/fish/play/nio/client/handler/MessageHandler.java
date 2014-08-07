@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 import com.fish.play.nio.client.bean.RequestEntity;
 import com.fish.play.nio.client.bean.ResponseEntity;
+import com.fish.play.nio.client.transport.exchange.Command;
 
 public class MessageHandler extends ChannelHandlerAdapter {
 	
@@ -21,7 +22,13 @@ public class MessageHandler extends ChannelHandlerAdapter {
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
 		ResponseEntity result = (ResponseEntity) msg;
-		System.out.println(result.getResponse());
+		long serialNum = result.getSerialNum();
+		String content = result.getResponse();
+		Command command = Command.commandMap.get(serialNum);
+		if (command != null) {
+			command.setResult(content);
+			command.getLatch().countDown();
+		}
 	}
 
 	@Override
