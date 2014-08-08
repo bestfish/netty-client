@@ -24,7 +24,7 @@ public class ExchangeClient extends NettyClient {
 		super(host, port);
 	}
 
-	public Object request(String message) throws InterruptedException, TimeoutException {
+	public String request(String message) throws InterruptedException, TimeoutException {
 		long serialNum = threadNumber.getAndIncrement();
 		Command command = new Command(new CountDownLatch(1), serialNum);
 		sendMessage(message, serialNum, command);
