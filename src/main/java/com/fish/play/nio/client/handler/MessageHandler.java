@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 import com.fish.play.nio.client.bean.RequestEntity;
 import com.fish.play.nio.client.bean.ResponseEntity;
-import com.fish.play.nio.client.transport.exchange.Command;
+import com.fish.play.nio.client.exchange.Command;
 
 public class MessageHandler extends ChannelHandlerAdapter {
 	

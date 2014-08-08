@@ -1,4 +1,4 @@
-package com.fish.play.nio.client.transport.exchange;
+package com.fish.play.nio.client.exchange;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;

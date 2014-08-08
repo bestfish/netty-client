@@ -1,4 +1,4 @@
-package com.fish.play.nio.client.transport.exchange;
+package com.fish.play.nio.client.exchange;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
