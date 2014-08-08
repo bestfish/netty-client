@@ -135,7 +135,7 @@ public abstract class AbstractClient {
 			log.warn(e.getMessage(), e);
 		}
 	}
-
+	
 	public String getHost() {
 		return host;
 	}

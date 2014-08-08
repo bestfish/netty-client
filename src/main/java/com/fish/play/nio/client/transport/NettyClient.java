@@ -78,6 +78,7 @@ public class NettyClient extends AbstractClient {
 	@Override
 	protected void doDisConnect() throws Throwable {
 		NettyChannel.removeChannelIfDisconnected(channel);
+		group.shutdownGracefully();
 	}
 
 	@Override
